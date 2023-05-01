@@ -5,11 +5,11 @@ import logo from '/assets/cf-logo.png'
 import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
     return (
-        <div className='md:px-20 font-popins'>
+        <div className='md:px-20 fixed w-full  font-popins  top-5 right-0  z-50 text-white '>
         <Navbar
             fluid={true}
             rounded={true}
-             
+             style={{background: 'transparent'}}
         >
             <Navbar.Brand href="https://flowbite.com/">
                 <img
@@ -35,6 +35,7 @@ const Header = () => {
                
             </Navbar.Collapse>
         </Navbar>
+        
         </div>
 
     );
