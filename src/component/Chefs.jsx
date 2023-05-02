@@ -15,7 +15,7 @@ const Chefs = () => {
                 
                 </div>
                 <div className=''>
-                    <h3 className='text-center font-popins font-medium text-6xl my-3'>Chef's</h3>
+                    <h3 className='text-center font-popins font-medium text-6xl my-3'>Chef</h3>
                 </div>
             </div>
 
