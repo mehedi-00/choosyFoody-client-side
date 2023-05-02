@@ -3,25 +3,27 @@ import { Button, Navbar } from 'flowbite-react';
 import React from 'react';
 import logo from '/assets/cf-logo.png'
 import { Link, NavLink } from 'react-router-dom';
-const Header = () => {
+const Header = ({login}) => {
+    
     return (
-        <div className='md:px-20 absolute w-full  font-popins  top-5 right-0  z-50 text-white '>
+        // <div className='md:px-20 absolute w-full  font-popins  top-5 right-0  z-50 '>
+        <div style={login && {background:'black', top: '0'}} className="md:px-20  w-full absolute  font-popins text-white top-5 right-0  z-50">
         <Navbar
             fluid={true}
             rounded={true}
              style={{background: 'transparent'}}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Link to='/'>
                 <img
                     src={logo}
                     className="mr-3 h-6 sm:h-9"
                     alt="Flowbite Logo"
                 />
-                
-            </Navbar.Brand>
+                </Link>
+            
             <div className="flex md:order-2">
                
-                   <span className='btn-primary'>Login</span>
+                   <Link to='/login' className='btn-primary'>Login</Link>
                
                 <Navbar.Toggle />
             </div>
