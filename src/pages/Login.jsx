@@ -3,10 +3,10 @@ import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-import { FaExclamation } from 'react-icons/fa';
+import { FaExclamation, FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { loginWithEmailAndPassword } = useContext(AuthContext);
+    const { loginWithEmailAndPassword, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleLoginWithEmailPass = e => {
@@ -21,6 +21,23 @@ const Login = () => {
             })
             .catch(err => setError(err.message));
 
+    };
+
+    const handleLoginGoogle = () => {
+        loginWithGoogle()
+            .then(res => {
+                const loggedUser = res.user;
+                console.log(loggedUser);
+            })
+            .catch(err => setError(err.message));
+    };
+    const handleLoginGithub = () => {
+        loginWithGithub()
+            .then(res => {
+                const loggedUser = res.user;
+                console.log(loggedUser);
+            })
+            .catch(err => setError(err.message));
     };
     return (
         <div className="max-w-sm mt-28 mx-auto shadow-xl ">
@@ -61,6 +78,16 @@ const Login = () => {
                     </button>
                 </form>
                 <span className='font-popins'>Do not have an account <Link to='/login/register' className='text-primary font-semibold underline'>Register</Link></span>
+                <div className='flex justify-evenly mt-5'>
+                    <button onClick={handleLoginGoogle} className='flex items-center bg-lime-800 px-3 py-2 rounded-md shadow-md'>
+                        <FaGoogle className='w-8 w-8 text-yellow-400' />
+                        <span className='font-popins text-white font-semibold'>GOOGLE</span>
+                    </button>
+                    <button onClick={handleLoginGithub} className='flex items-center bg-blue-900 px-3 py-2 rounded-md shadow-md'>
+                        <FaGithub className='w-8 w-8 text-yellow-400' />
+                        <span className='font-popins text-white font-semibold'>GITHUB</span>
+                    </button>
+                </div>
             </Card>
         </div>
     );
