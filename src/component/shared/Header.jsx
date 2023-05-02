@@ -5,7 +5,7 @@ import logo from '/assets/cf-logo.png'
 import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
     return (
-        <div className='md:px-20 fixed w-full  font-popins  top-5 right-0  z-50 text-white '>
+        <div className='md:px-20 absolute w-full  font-popins  top-5 right-0  z-50 text-white '>
         <Navbar
             fluid={true}
             rounded={true}
