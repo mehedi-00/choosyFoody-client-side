@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { Card, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
-
+import { FaExclamation } from "react-icons/fa";
 const Register = () => {
     const { resgisterWithEmailPassword } = useContext(AuthContext);
+    const [error,setError] = useState('')
+   
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -27,12 +29,13 @@ const Register = () => {
                 form.reset();
 
             })
-            .catch(err => console.log(err.messsage));
+            .catch(err => setError(err.message));
     };
 
     return (
         <div className="max-w-sm mt-28 mx-auto shadow-xl ">
             <Card>
+                <div className='text-red-700 flex space-x-2'> {error && <FaExclamation className='w-5 h-5 text-teal-950'></FaExclamation>} <span>{error}</span> </div>
                 <form className="flex flex-col gap-4" onSubmit={handleRegister}>
                     <div>
                         <div className="mb-2 block">
@@ -61,6 +64,7 @@ const Register = () => {
                             name='email'
                             placeholder="email@.com"
                             required={true}
+                            
                         />
                     </div>
                     <div>
