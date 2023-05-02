@@ -41,7 +41,7 @@ const Login = () => {
                         Submit
                     </button>
                 </form>
-                <span className='font-popins'>Do not have an account <Link to='/login/register' className=' text-primary font-semibold'>Register</Link></span>
+                <span className='font-popins'>Do not have an account <Link to='/login/register' className='text-primary font-semibold underline'>Register</Link></span>
             </Card>
         </div>
     );
