@@ -5,6 +5,8 @@ import Chef from './Chef';
 import { Button, Spinner } from 'flowbite-react';
 
 const Chefs = () => {
+    // const chefs = useLoaderData();
+    
     const [chefs, setChefs] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {

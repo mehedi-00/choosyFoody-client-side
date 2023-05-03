@@ -8,6 +8,7 @@ import LoginLayout from '../../layout/LoginLayout';
 import Login from '../../pages/Login';
 import Register from '../../pages/Register';
 import VewRecipes from '../../component/VewRecipes';
+import PrivetRoute from '../PrivetRoute';
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             
             {
                 path: '/chef/:id',
-                element: <VewRecipes/>,
+                element:  <PrivetRoute><VewRecipes/></PrivetRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/chef/${params.id}`)
             }
         ]
