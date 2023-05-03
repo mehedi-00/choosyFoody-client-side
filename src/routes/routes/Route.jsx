@@ -9,6 +9,8 @@ import Login from '../../pages/Login';
 import Register from '../../pages/Register';
 import VewRecipes from '../../component/VewRecipes';
 import PrivetRoute from '../PrivetRoute';
+import BlogLayout from '../../layout/BlogLayout';
+import Blog from '../../pages/Blog';
 
 const router = createBrowserRouter([
     {
@@ -40,6 +42,15 @@ const router = createBrowserRouter([
             {
                 path: '/login/register',
                 element: <Register/>
+            }
+        ]
+    },{
+        path: '/blog',
+        element: <BlogLayout/>,
+        children: [
+            {
+                path: '/blog',
+                element: <Blog/>
             }
         ]
     }

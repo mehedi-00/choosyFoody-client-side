@@ -3,16 +3,20 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
 import { FaThumbsUp } from "react-icons/fa";
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 const Chef = ({ chef }) => {
     const { id, name, image, experience, recipes, likes } = chef;
     return (
-        <div className="max-w-sm">
+        <div className="max-w-sm ">
             <Card
-                imgAlt="Meaningful alt text for an image that is not purely decorative"
-                imgSrc={image}
+
+
             >
-                <div className='flex justify-between'>
+                <LazyLoad height={300}  offset={50}>
+                    <img src={image} alt="" />
+                </LazyLoad>
+                <div className='flex justify-between mt-5'>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {name}
                     </h5>
