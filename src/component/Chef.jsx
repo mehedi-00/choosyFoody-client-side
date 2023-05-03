@@ -3,8 +3,9 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
 import { FaThumbsUp } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const Chef = ({ chef }) => {
-    const { id, name, image, experience, recepies, likes } = chef;
+    const { id, name, image, experience, recipes, likes } = chef;
     return (
         <div className="max-w-sm">
             <Card
@@ -19,10 +20,10 @@ const Chef = ({ chef }) => {
                 </div>
                 <div className='flex justify-between'>
                     <p>{experience}</p>
-                    <p>{recepies.length} Recipes</p>
+                    <p>{recipes.length} Recipes</p>
                 </div>
 
-                <button className='btn-primary py-5'>View Recipes </button>
+                <Link to={`/chef/${id}`} className='btn-primary py-5'>View Recipes </Link>
             </Card>
         </div>
     );
