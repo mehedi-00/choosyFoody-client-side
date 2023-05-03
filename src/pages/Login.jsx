@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,  useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { FaExclamation, FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     const { loginWithEmailAndPassword, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
     const [error, setError] = useState('');
-
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
     const handleLoginWithEmailPass = e => {
         e.preventDefault();
         const form = e.target;
@@ -18,6 +20,7 @@ const Login = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(err => setError(err.message));
 
@@ -28,6 +31,7 @@ const Login = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(err => setError(err.message));
     };
@@ -36,6 +40,7 @@ const Login = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(err => setError(err.message));
     };
@@ -74,7 +79,7 @@ const Login = () => {
                     </div>
 
                     <button type="submit" className='btn-primary'>
-                        Submit
+                        Login
                     </button>
                 </form>
                 <span className='font-popins'>Do not have an account <Link to='/login/register' className='text-primary font-semibold underline'>Register</Link></span>

@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { FaExclamation } from "react-icons/fa";
 const Register = () => {
-    const { resgisterWithEmailPassword } = useContext(AuthContext);
-    const [error,setError] = useState('')
-   
+    const { resgisterWithEmailPassword, logOut } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -25,7 +25,8 @@ const Register = () => {
                 updateProfile(createUser, {
                     displayName: name, photoURL: photo
                 });
-
+                logOut();
+                navigate('/login');
                 form.reset();
 
             })
@@ -64,7 +65,7 @@ const Register = () => {
                             name='email'
                             placeholder="email@.com"
                             required={true}
-                            
+
                         />
                     </div>
                     <div>
@@ -97,7 +98,7 @@ const Register = () => {
                     </div>
 
                     <button type="submit" className='btn-primary'>
-                        Submit
+                        Register
                     </button>
                 </form>
                 <span className='font-popins'>Allready have an account <Link to='/login' className=' text-primary font-semibold underline'>Login</Link></span>

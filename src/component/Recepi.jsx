@@ -11,12 +11,14 @@ const Recepi = ({recipe}) => {
     const [favaroite, setFavaroite] = useState(true);
 
     const handleFavaroute = () => {
-        toast('SuccessFully Added Favourite');
+        toast('SuccessFully Added Favourite',{
+            style: {color: 'red'}
+        });
         setFavaroite(false);
     };
     return (
         <Card className='shadow-2xl'>
-            <Toaster/>
+            <Toaster />
         <img className='h-[250px]' src={recipe.img} alt="" />
         <div className='flex justify-between'>
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
