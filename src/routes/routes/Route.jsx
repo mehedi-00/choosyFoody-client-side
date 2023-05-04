@@ -50,7 +50,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/blog',
-                element: <Blog/>
+                element: <Blog/>,
+                loader: ()=> fetch('http://localhost:5000/blogs')
+
             }
         ]
     }

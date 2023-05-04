@@ -14,7 +14,7 @@ const Chef = ({ chef }) => {
 
             >
                 <LazyLoad height={300}  offset={50}>
-                    <img src={image} alt="" />
+                    <img className='h-[300px] w-full'  src={image} alt="" />
                 </LazyLoad>
                 <div className='flex justify-between mt-5'>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
