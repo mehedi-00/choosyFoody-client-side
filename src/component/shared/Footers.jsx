@@ -6,10 +6,10 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYahoo, FaYoutube } from "react-ic
 import { Card, Label, TextInput } from 'flowbite-react';
 const Footers = () => {
   return (
-    <footer className='  px-20 '>
+    <footer className='md:px-20 '>
 
-      <div className="grid md:grid-cols-3 gap-8 bg-slate-800 p-8">
-        <div>
+      <div className="grid md:grid-cols-3 gap-8 bg-slate-800 p-8 xs:mb-10">
+        <div className='flex flex-col items-center md:items-start'>
           <Link>
             <img src={logo} alt="" />
           </Link>
@@ -36,7 +36,7 @@ const Footers = () => {
           </div>
 
         </div>
-        <div>
+        <div className='flex flex-col items-center md:items-start'>
           <ul>
             <li className='my-8'>
               <Link to='/' className='text-lime-50 font-popins font-medium '>Home </Link>
@@ -49,14 +49,14 @@ const Footers = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className='flex flex-col items-center md:items-start'>
           <h2 className='text-lime-100 mt-8 font-popins font-bold text-lg mb-8'>SubScribe Here</h2>
 
             <button  className='btn-primary '>Subscribe</button>
           
         </div>
       </div>
-      <div className=' bg-slate-600 '>
+      <div className=' bg-slate-600  '>
         <h6 className='py-8 text-center text-lime-100 font-popins'>@copy write by <small className='font-vibes text-primary '>Mehedi</small></h6>
       </div>
     </footer>

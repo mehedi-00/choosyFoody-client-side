@@ -10,9 +10,9 @@ const About = () => {
             <div className="section-title flex flex-col justify-center">
                 <div className=' px-8 py-12'>
                     <div className='flex  mx-auto space-x-3'>
-                        <div className='w-24 h-1 bg-primary inline-flex mt-auto mb-5 rounded-e-md rounded-s-md'></div>
+                        <div className=' w-20 md:w-24 h-1 bg-primary inline-flex mt-auto mb-5 rounded-e-md rounded-s-md'></div>
                         <h2 className='text-4xl font-vibes text-primary'>About Us </h2>
-                        <div className='w-24 h-1 bg-primary inline-flex mt-auto mb-5 rounded-e-md rounded-s-md'></div>
+                        <div className='w-20 md:w-24 h-1 bg-primary inline-flex mt-auto mb-5 rounded-e-md rounded-s-md'></div>
                     </div>
                     <p className='my-5 font-popins text-slate-800'>We are a family-owned and operated restaurant that has been serving delicious food to our community for over 20 years. Our passion for food and dedication to quality is reflected in every dish we serve</p>
                 </div>

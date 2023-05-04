@@ -31,10 +31,10 @@ const Chefs = () => {
 
 
     return (
-        <div className='mt-28 px-20 mb-10'>
+        <div className=' mt-14 md:mt-28 md:px-20 mb-10'>
 
             <div className="section-title  grid grid-cols-1 justify-center items-center ">
-                <div className='flex w-1/4 mx-auto space-x-3'>
+                <div className='flex md:w-1/4 mx-auto space-x-3'>
                     <div className='w-24 h-1 bg-primary inline-flex mt-auto mb-5 rounded-e-md rounded-s-md'></div>
                     <h2 className='text-4xl font-vibes text-primary'>Our </h2>
                     <div className='w-24 h-1 bg-primary inline-flex mt-auto mb-5 rounded-e-md rounded-s-md'></div>
@@ -45,7 +45,7 @@ const Chefs = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 mt-20">
+            <div className="grid md:grid-cols-3 gap-8 mt-20">
                 {
                     chefs.map(chef => <Chef chef={chef} key={chef.id} />)
                 }

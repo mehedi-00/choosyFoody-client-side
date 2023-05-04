@@ -19,7 +19,7 @@ const Blog = () => {
 
 
             </div>
-            <div className='px-20 my-28'>
+            <div className='md:px-20 my-28'>
                 <div ref={ref}>
                 <h2 className='text-center font-popins text-2xl font-extrabold'> Some Quetsion and Answer</h2>
                         <div className='grid md:grid-cols-2 gap-8 mt-20'>

@@ -3,8 +3,8 @@ import React from 'react';
 
 const VisitUs = () => {
     return (
-        <div className='mx-20 my-28 grid md:grid-cols-2 '>
-            <div className='flex flex-col items-center justify-center'>
+        <div className=' mx-5 md:mx-20 my-28 grid md:grid-cols-2 '>
+            <div className='mb-10 md:mb-0 flex flex-col items-center justify-center'>
                 <div >
                 <h2 className='text-primary font-popins text-5xl font-extrabold'>Visit Us</h2>
                 <p className='my-5 text-slate-600'>121 Rock Sreet, 21 Avenue, Pakistan, NY 92103-9000</p>

@@ -27,7 +27,7 @@ const Header = ({ login }) => {
                 <Link to='/'>
                     <img
                         src={logo}
-                        className="mr-3 h-6 sm:h-9"
+                        className="md:mr-3 h-6 sm:h-9"
                         alt=""
                     />
                 </Link>
@@ -55,16 +55,16 @@ const Header = ({ login }) => {
                             <button onClick={handleLogOut}>Sign out</button>
                         </Dropdown.Item>
                     </Dropdown> :
-                     <Link to='/login' className='btn-primary'>Login</Link>
+                     <Link to='/login' className='btn-primary mr-5 md:mr-0'>Login</Link>
                     }
 
                     <Navbar.Toggle />
                 </div>
-                <Navbar.Collapse >
-                    <NavLink to='/' className={({ isActive }) => (isActive ? 'text-primary text-xl' : ' text-xl')}>
+                <Navbar.Collapse  className='bg-white md:bg-inherit p-8 md:p-0'>
+                    <NavLink to='/' className={({ isActive }) => (isActive ? 'text-primary text-xl' : ' text-black md:text-inherit text-xl')}>
                         Home
                     </NavLink>
-                    <NavLink to='/blog' className={({ isActive }) => (isActive ? 'text-primary text-xl' : ' text-xl')}>
+                    <NavLink to='/blog' className={({ isActive }) => (isActive ? 'text-primary text-xl' : 'text-black md:text-inherit text-xl')}>
                         Blog
                     </NavLink>
 
