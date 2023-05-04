@@ -1,12 +1,22 @@
 /* eslint-disable no-unused-vars */
 import { Card } from 'flowbite-react';
-import React, { useState } from 'react';
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData, useNavigation, useParams } from 'react-router-dom';
 import Recepi from './Recepi';
 import Loader from './shared/Loader';
 
 const VewRecipes = () => {
-    const chef = useLoaderData();
+    const chefid = useParams().id;
+    const [chef, setChef] = useState(null);
+    useEffect(() => {
+        fetch(`https://choosyfoody-server.vercel.app/chef/${chefid}`)
+            .then(res => res.json())
+            .then(data => setChef(data));
+    }, []);
+    if(!chef){
+        return <Loader />;
+    }
+    // const chef = useLoaderData();
 
     const { id, name, image, experience, recipes, likes, description } = chef;
 

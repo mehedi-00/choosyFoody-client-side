@@ -22,13 +22,13 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                // loader: ()=> fetch('http://localhost:5000/chefs')
+                loader: ()=> fetch('https://choosyfoody-server.vercel.app/chefs')
             },
             
             {
                 path: '/chef/:id',
                 element:  <PrivetRoute><VewRecipes/></PrivetRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/chef/${params.id}`)
+                
             }
         ]
     },
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog/>,
-                loader: ()=> fetch('http://localhost:5000/blogs')
+                loader: ()=> fetch('https://choosyfoody-server.vercel.app/blogs')
 
             }
         ]

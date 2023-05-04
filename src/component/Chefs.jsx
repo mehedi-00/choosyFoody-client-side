@@ -2,34 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import Chef from './Chef';
 import { Button, Spinner } from 'flowbite-react';
+import { useLoaderData } from 'react-router-dom';
 
 const Chefs = () => {
-   
-    const [chefs, setChefs] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-        setIsLoading(true);
-        fetch('http://localhost:5000/chefs')
-            .then(res => res.json())
-            .then(data => {
-                setChefs(data);
-                setIsLoading(false);
-            });
-    }, []);
 
-    // if (isLoading) {
-
-    //     return <div className='absolute inset-0 bg-black z-50'>
-    //         <Button color="gray" className='mx-auto'>
-    //             <Spinner aria-label="Alternate spinner button example" />
-    //             <span className="pl-3">
-    //                 Loading...
-    //             </span>
-    //         </Button>
-    //     </div>;
-    // }
-
-
+    const allData = useLoaderData();
+    // console.log(allData);
     return (
         <div className=' mt-14 md:mt-28 md:px-20 mb-10'>
 
@@ -47,7 +25,7 @@ const Chefs = () => {
 
             <div className="grid md:grid-cols-3 gap-8 mt-20">
                 {
-                    chefs.map(chef => <Chef chef={chef} key={chef.id} />)
+                    allData.map(chef => <Chef chef={chef} key={chef.id} />)
                 }
             </div>
         </div>
