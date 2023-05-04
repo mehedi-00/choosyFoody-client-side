@@ -17,17 +17,17 @@ const Chefs = () => {
             });
     }, []);
 
-    if (isLoading) {
+    // if (isLoading) {
 
-        return <div className='absolute inset-0 bg-black z-50'>
-            <Button color="gray" className='mx-auto'>
-                <Spinner aria-label="Alternate spinner button example" />
-                <span className="pl-3">
-                    Loading...
-                </span>
-            </Button>
-        </div>;
-    }
+    //     return <div className='absolute inset-0 bg-black z-50'>
+    //         <Button color="gray" className='mx-auto'>
+    //             <Spinner aria-label="Alternate spinner button example" />
+    //             <span className="pl-3">
+    //                 Loading...
+    //             </span>
+    //         </Button>
+    //     </div>;
+    // }
 
 
     return (
