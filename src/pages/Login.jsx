@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link,  useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { FaExclamation, FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { loginWithEmailAndPassword, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
+    const { loginWithEmailAndPassword, loginWithGoogle, loginWithGithub, setLoading } = useContext(AuthContext);
     const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
@@ -16,13 +16,18 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        loginWithEmailAndPassword(email, password)
+        
+            loginWithEmailAndPassword(email, password)
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser);
                 navigate(from, { replace: true });
             })
-            .catch(err => setError(err.message));
+            .catch(err => {
+                console.log(err.message);
+                setLoading(false);
+                setError(err.message);
+            });
 
     };
 
@@ -33,7 +38,10 @@ const Login = () => {
                 console.log(loggedUser);
                 navigate(from, { replace: true });
             })
-            .catch(err => setError(err.message));
+            .catch(err => {
+                setLoading(false);
+                setError(err.message);
+            });
     };
     const handleLoginGithub = () => {
         loginWithGithub()
@@ -42,11 +50,15 @@ const Login = () => {
                 console.log(loggedUser);
                 navigate(from, { replace: true });
             })
-            .catch(err => setError(err.message));
+            .catch(err => {
+                setLoading(false);
+                setError(err.message);
+            });
     };
     return (
         <div className="max-w-sm mt-28 mx-auto shadow-xl ">
             <Card>
+                <h2 className='text-3xl my-8 text-center'>Please Login</h2>
                 <div className='text-red-700 flex space-x-2'> {error && <FaExclamation className='w-5 h-5 text-teal-950'></FaExclamation>} <span>{error}</span> </div>
                 <form className="flex flex-col gap-4" onSubmit={handleLoginWithEmailPass}>
                     <div>

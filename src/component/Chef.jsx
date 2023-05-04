@@ -6,7 +6,7 @@ import { FaThumbsUp } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 const Chef = ({ chef }) => {
-    const { id, name, image, experience, recipes, likes } = chef;
+    const { id, name, image, experience,recepies_number, recipes, likes } = chef;
     return (
         <div className="max-w-sm ">
             <Card
@@ -24,7 +24,7 @@ const Chef = ({ chef }) => {
                 </div>
                 <div className='flex justify-between'>
                     <p>{experience}</p>
-                    <p>{recipes.length} Recipes</p>
+                    <p>{recepies_number} Recipes</p>
                 </div>
 
                 <Link to={`/chef/${id}`} className='btn-primary py-5'>View Recipes </Link>

@@ -6,7 +6,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { FaExclamation } from "react-icons/fa";
 const Register = () => {
-    const { resgisterWithEmailPassword, logOut } = useContext(AuthContext);
+    const { resgisterWithEmailPassword, logOut, setLoading } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const handleRegister = e => {
@@ -16,7 +16,9 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-
+        if (password.length < 6) {
+            return setError('Password Must be 6 characters ');
+        }
         resgisterWithEmailPassword(email, password)
             .then(res => {
                 const createUser = res.user;
@@ -30,12 +32,17 @@ const Register = () => {
                 form.reset();
 
             })
-            .catch(err => setError(err.message));
+            .catch(err => {
+                setLoading(false);
+                setError(err.message);
+            });
     };
 
     return (
         <div className="max-w-sm mt-28 mx-auto shadow-xl ">
             <Card>
+                <h2 className='text-3xl my-8 text-center'>Please Register</h2>
+
                 <div className='text-red-700 flex space-x-2'> {error && <FaExclamation className='w-5 h-5 text-teal-950'></FaExclamation>} <span>{error}</span> </div>
                 <form className="flex flex-col gap-4" onSubmit={handleRegister}>
                     <div>
@@ -80,6 +87,7 @@ const Register = () => {
                             type="password"
                             name='password'
                             required={true}
+
                         />
                     </div>
                     <div>

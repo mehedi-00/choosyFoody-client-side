@@ -25,11 +25,11 @@ const AuthProvider = ({ children }) => {
     };
 
     const loginWithGoogle = () => {
-        
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     };
     const loginWithGithub = () => {
-        
+        setLoading(true)
         return signInWithPopup(auth, githubProbider);
     };
     const logOut = () => {
@@ -48,6 +48,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        setLoading,
         resgisterWithEmailPassword,
         loginWithEmailAndPassword,
         loginWithGoogle,

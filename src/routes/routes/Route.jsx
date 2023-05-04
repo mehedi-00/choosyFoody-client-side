@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                loader: ()=> fetch('https://choosyfoody-server.vercel.app/chefs')
+                loader: ()=> fetch('https://choosyfoody-server-mehedi-00.vercel.app/chefs')
             },
             
             {
